@@ -1,0 +1,31 @@
+def calcular_faturamento(vetor):
+    menor_fat = float('inf')
+    maior_fat = float('-inf')
+    dias_superior_media = 0
+    soma_fat = 0
+    dias_fat = 0
+  
+    for fat in vetor:
+        if fat <= 0:
+            continue
+        if fat < menor_fat:
+            menor_fat = fat
+        if fat > maior_fat:
+            maior_fat = fat
+       
+        soma_fat += fat
+        dias_fat += 1
+    
+    media_fat = soma_fat / dias_fat
+    
+    for faturamento in vetor:
+        if faturamento > media_fat:
+            dias_superior_media += 1 
+
+    return menor_fat, maior_fat, dias_superior_media
+
+fat_diario = [1500,600,0,0,900,1000,1500,500,400,0,0,3000,3500,5000,2000,1500,0,0,3000,4000,600,500,300,0,0,600,800,900,3500,1300]
+menor, maior, dias_superior_media = calcular_faturamento(fat_diario)
+print(f"Menor valor de faturamento: {menor}")
+print(f"Maior valor de faturamento: {maior}")
+print(f"Dias que obtiveram o faturamento superior a media: {dias_superior_media}")
