@@ -1,0 +1,6 @@
+string = input("Digite o que deseja inverter: ")
+inversao = ""
+
+for i in range(len(string)-1, -1, -1):
+    inversao += string[i]
+print("A inversao desejada é:", inversao)
